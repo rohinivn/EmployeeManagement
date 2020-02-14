@@ -1,0 +1,71 @@
+﻿@model Employee.Repository.EmployeeRepository
+
+@{
+    ViewBag.Title = "GetEmployees";
+}
+
+<h2>GetEmployees</h2>
+view data display
+@if (ViewData != null)
+{
+    <table border="1">
+        <tr>
+            <th>EmployeeID</th>
+            <th>EmployeeName</th>
+            <th>EmployeeWorkType</th>
+            <th>EmployeeExperience</th>
+        </tr>
+        @foreach (var employees in ViewData["employee"] as IEnumerable<Employee.Data.Employees>)
+        {
+            <tr>
+                <td>@employees.Id</td>
+                <td>@employees.EmployeeName</td>
+                <td>@employees.WorkType</td>
+                <td>@employees.Experience</td>
+            </tr>
+        }
+    </table>
+}
+view bag display
+@if (ViewBag != null)
+{
+    <table border="1">
+        <tr>
+            <th>EmployeeID</th>
+            <th>EmployeeName</th>
+            <th>EmployeeWorkType</th>
+            <th>EmployeeExperience</th>
+        </tr>
+        @foreach (var employees in ViewBag.employee)
+        {
+            <tr>
+                <td>@employees.Id</td>
+                <td>@employees.EmployeeName</td>
+                <td>@employees.WorkType</td>
+                <td>@employees.Experience</td>
+            </tr>
+        }
+    </table>
+}
+Temp data display
+@if (TempData != null)
+{
+    <table border="1">
+        <tr>
+            <th>EmployeeID</th>
+            <th>EmployeeName</th>
+            <th>EmployeeWorkType</th>
+            <th>EmployeeExperience</th>
+        </tr>
+        @foreach (var employees in TempData["employee"] as IEnumerable<Employee.Data.Employees>)
+        {
+            <tr>
+                <td>@employees.Id</td>
+                <td>@employees.EmployeeName</td>
+                <td>@employees.WorkType</td>
+                <td>@employees.Experience</td>
+            </tr>
+        }
+    </table>
+}
+
